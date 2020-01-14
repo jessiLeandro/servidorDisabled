@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -10,6 +11,6 @@ app.use(cors());
 app.use(Express.static("client"));
 app.use(bodyParser.json());
 
-const port = 443;
+const { PORT } = process.env;
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
